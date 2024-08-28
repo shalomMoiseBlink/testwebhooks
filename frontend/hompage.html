@@ -62,7 +62,7 @@
     </table>
 <br>
 <br>
-<div class="button">Reset</div>
+<div class="button" onclick="reset()">Reset</div>
 </body>
 <script>
 
@@ -96,5 +96,10 @@ function populateTable(data) {
     .then((res)=>{
         populateTable(res.users);
     })
+const reset =()=>{
+    fetch("../supportteamtest/reset", {method: "POST"})
+    .then(()=>console.log("reset"))
+    .catch(()=>console.log("err"))
+}
 </script>
 </html>
