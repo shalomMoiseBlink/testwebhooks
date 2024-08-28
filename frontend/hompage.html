@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .loading::before {
+            content: "...";
+            color: #999;
+        }
+        .success::before {
+            content: "✔";
+            color: green;
+        }
+        .button {
+    background-color: #FF0000; /* Red background */
+    color: #FFFFFF; /* White text */
+    padding: 10px 20px; /* Space around the text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: inline-block; /* Make the div inline-block to fit content */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.button:hover {
+    background-color: #CC0000; /* Darker red on hover */
+}
+
+    </style>
+    <title>Support</title>
+</head>
+<body>
+    <h1>Testing webhooks for support</h1>
+    <table id="jsonTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>MOTO</th>
+                <th>Paylink</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+<br>
+<br>
+<div class="button">Reset</div>
+</body>
+<script>
+
+function populateTable(data) {
+            const tableBody = document.querySelector("#jsonTable tbody");
+            tableBody.innerHTML = ""; // Clear any existing content
+
+            data.forEach(item => {
+                const row = document.createElement("tr");
+
+                // Create cells
+                const nameCell = document.createElement("td");
+                nameCell.textContent = item.name;
+                row.appendChild(nameCell);
+
+                // MOTO cell
+                const motoCell = document.createElement("td");
+                motoCell.className = item.MOTO ? 'success' : 'loading';
+                row.appendChild(motoCell);
+
+                // Paylink cell
+                const paylinkCell = document.createElement("td");
+                paylinkCell.className = item.paylink ? 'success' : 'loading';
+                row.appendChild(paylinkCell);
+
+                // Append row to table body
+                tableBody.appendChild(row);
+            });
+        }
+    fetch("../storage/support").then((response)=>response.json())
+    .then((res)=>{
+        populateTable(res.users);
+    })
+</script>
+</html>
