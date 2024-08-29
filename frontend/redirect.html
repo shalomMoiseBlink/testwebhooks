@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Query Parameters</title>
+    <style>
+        body {
+            font-family: "Lucida Console", "Courier New", monospace;
+            text-align: center;
+        }
+
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .loading::before {
+            content: "...";
+            color: #999;
+        }
+
+        .success::before {
+            content: "✔";
+            color: green;
+        }
+
+        .button {
+            background-color: #FF0000;
+            /* Red background */
+            color: #FFFFFF;
+            /* White text */
+            padding: 10px 20px;
+            /* Space around the text */
+            border: none;
+            /* No border */
+            border-radius: 5px;
+            /* Rounded corners */
+            text-align: center;
+            /* Center the text */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            display: inline-block;
+            /* Make the div inline-block to fit content */
+            font-size: 16px;
+            /* Font size */
+            font-weight: bold;
+            /* Bold text */
+            transition: background-color 0.3s ease;
+            /* Smooth hover effect */
+        }
+
+        .button:hover {
+            background-color: #CC0000;
+            /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Redirect Redirect</h1>
+    <div id="queryParams"></div>
+<a href="../supportteamtest/"><div class="button">Go and see if it was ticked</div></a>
+    <script>
+        // Function to parse query parameters
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const result = {};
+            for (const [key, value] of params.entries()) {
+                result[key] = decodeURIComponent(value);
+            }
+            return result;
+        }
+
+        // Function to display query parameters on the page
+        function displayQueryParams() {
+            const queryParams = getQueryParams();
+            const queryParamsDiv = document.getElementById('queryParams');
+            
+            for (const [key, value] of Object.entries(queryParams)) {
+                const p = document.createElement('p');
+                p.textContent = `${key}: ${value}`;
+                queryParamsDiv.appendChild(p);
+            }
+        }
+
+        // Call the function to display query params when the page loads
+        window.onload = displayQueryParams;
+    </script>
+</body>
+</html>

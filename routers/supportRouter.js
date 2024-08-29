@@ -10,6 +10,15 @@ supportRouter.get("/", (req, res, next) => {
       res.send(data)
     });
   });
+  supportRouter.get("/redirect", (req, res, next) => {
+    fs.readFile('./frontend/redirect.html', 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      res.send(data)
+    });
+  });
 supportRouter.post("/reset", (req,res,next)=>{
     const resetText = fs.readFileSync('./storage/temaplate_for_support.json');
     fs.writeFileSync("./storage/support_users.json", resetText)

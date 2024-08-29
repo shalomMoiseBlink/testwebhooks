@@ -1,0 +1,1956 @@
+{
+	"info": {
+		"_postman_id": "e2092ec5-0222-4b5f-9d57-3a9717205e5d",
+		"name": "Document 360",
+		"description": "The Blink API allows Blink merchants to create payments through card, open banking and direct debit. The payment API allows for full customization, while the paylink API enables users to create unique links for quick ECOM payments.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21463868",
+		"_collection_link": "https://lively-astronaut-344324.postman.co/workspace/b5b1fd12-793b-4e0e-8309-1dbf4f56cbe0/collection/36814190-e2092ec5-0222-4b5f-9d57-3a9717205e5d?action=share&source=collection_link&creator=21463868"
+	},
+	"item": [
+		{
+			"name": "Authentication Token Document 360",
+			"item": [
+				{
+					"name": "tokens",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.collectionVariables.set(\"access_token\", pm.response.json().access_token);",
+									"pm.collectionVariables.set(\"payment_types\", pm.response.json().payment_types);",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\",\n    \"send_blink_receipt\": true,\n    \"address_postcode_required\": true,\n    \"enable_moto_payments\": true,\n    \"application_name\": \"Blink API Postman Demo\",\n    \"application_description\": \"Potsman collection of the Blink API - Take payments through, card, open banking and direct debits.\",\n    \"source_site\": \"getpostman.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/tokens",
+							"protocol": "https",
+							"host": [
+								"secure",
+								"blinkpayment",
+								"co",
+								"uk"
+							],
+							"path": [
+								"api",
+								"pay",
+								"v1",
+								"tokens"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "tokens",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"api_key\": \"eff458c623bba928a1a211521a7e38433bdf68780d0d8a16e2502f43cca322bc\",\n    \"secret_key\": \"6310e48bdd0e4381459a62b46d2c4fd6e8ab65a2a4d5205c6c3ddebfbbaebbf8\",\n    \"send_blink_receipt\": true,\n    \"address_postcode_required\": true,\n    \"enable_moto_payments\": true,\n    \"application_name\": \"Blink API Postman Demo\",\n    \"application_description\": \"Potsman collection of the Blink API - Take payments through, card, open banking and direct debits.\",\n    \"source_site\": \"getpostman.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/tokens",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"tokens"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jul 2024 13:51:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.59 (Amazon Linux) OpenSSL/3.0.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NDM5OCwic2VjcmV0X2tleSI6IjYzMTBlNDhiZGQwZTQzODE0NTlhNjJiNDZkMmM0ZmQ2ZThhYjY1YTJhNGQ1MjA1YzZjM2RkZWJmYmJhZWJiZjgiLCJleHAiOjE3MjIzNDkzMTh9.38L2OuCOD9rnmvTU2r3n0wAkF1tHp3GskaVCm7M5RYM\",\n    \"expired_on\": \"2024-07-30T14:21:58Z\",\n    \"payment_types\": [\n        \"credit-card\",\n        \"direct-debit\",\n        \"open-banking\"\n    ],\n    \"currencies\": [\n        \"GBP\"\n    ],\n    \"payment_api_status\": true,\n    \"send_blink_receipt\": true,\n    \"enable_moto_payments\": true,\n    \"address_postcode_required\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payments API Document 360",
+			"item": [
+				{
+					"name": "Intents",
+					"item": [
+						{
+							"name": "Create Intents",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"payment_intent\", pm.response.json().payment_intent);",
+											"pm.collectionVariables.set(\"intent_id\", pm.response.json().id);",
+											"pm.collectionVariables.set(\"merchant_id\", pm.response.json().merchant_id);",
+											"pm.collectionVariables.set(\"transaction_unique\", pm.response.json().transaction_unique);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"transaction_type\": \"SALE\",\n\t\"payment_type\": \"credit-card\",\n    \"amount\": 1.01,\n\t\"currency\": \"GBP\",\n\t\"return_url\": \"https://demo-app.blinkpayment.co.uk/return\",\n\t\"notification_url\": \"https://demo-app.blinkpayment.co.uk/notification\",\n    \"card_layout\": \"single-line\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/intents",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"intents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Intent by Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/intents/{{intent_id}}",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"intents",
+										"{{intent_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update intent by Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"notification_url\": \"https://www.blinkpayment.co.uk/notification\",\r\n    \"return_url\": \"https://www.blinkpayment.co.uk/return\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/intents/{{intent_id}}",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"intents",
+										"{{intent_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Creates a unique intent specifiying the transaction details."
+				},
+				{
+					"name": "CreditCards",
+					"item": [
+						{
+							"name": "payment_tokens",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"paymentToken\", pm.response.json().paymentToken);",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "process",
+											"value": "tokenise",
+											"type": "text"
+										},
+										{
+											"key": "merchantID",
+											"value": "{{merchant_id}}",
+											"type": "text"
+										},
+										{
+											"key": "tokenType",
+											"value": "card",
+											"type": "text"
+										},
+										{
+											"key": "tokenData[cardNumber]",
+											"value": "4111111111111111",
+											"type": "text"
+										},
+										{
+											"key": "tokenData[cardExpiryDate]",
+											"value": "12/24",
+											"type": "text"
+										},
+										{
+											"key": "tokenData[cardCVV]",
+											"value": "123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://gateway2.blinkpayment.co.uk/paymentform",
+									"protocol": "https",
+									"host": [
+										"gateway2",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"paymentform"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "creditcards (ECOM 3DS)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Accept-Charset",
+										"value": "\"\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"cc-12345678\\\"}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/creditcards",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"creditcards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "creditcards (MOTO)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// let url = pm.response.json().url;",
+											"// if(url) {",
+											"// let param = url.split('transaction_id=');",
+											"// let ref = param[1].split('&');",
+											"// pm.collectionVariables.set(\"transaction_id\", ref[0]);",
+											"// }"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2,\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"cc-12345678\\\"}\",\n     \"customer_address\": \"23 Rogerham Mansions 4578 Ermine Street Borehamwood\",\n    \"customer_postcode\": \"WD54 8TH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/creditcards",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"creditcards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "googlepay",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Accept-Charset",
+										"value": "\"\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"resource\": \"googlepay\",\n    \"paymentToken\": \"{\\\"signature\\\":\\\"MEQCIGM2t5fGZ2KNa9SjxfZ9BpkEeOetFuiwI8gp12bsYpvmAiBaTHCut/0RJXSZHehdDUkE8o5RDj1YXKodmpbP4dTWcw\\\\u003d\\\\u003d\\\",\\\"intermediateSigningKey\\\":{\\\"signedKey\\\":\\\"{\\\\\\\"keyValue\\\\\\\":\\\\\\\"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvvrmBuLqO7a0FQNtI1mgXd5wWKkzuS9GC59cQjx0eMavvJuxDJcnyqcho73exvLGkOcAunlUYX54S+7bJBJyIw\\\\\\\\u003d\\\\\\\\u003d\\\\\\\",\\\\\\\"keyExpiration\\\\\\\":\\\\\\\"1721815223719\\\\\\\"}\\\",\\\"signatures\\\":[\\\"MEQCIAflvCpW9p897y13P435Qme6kWxU5qklpuJVFbbMiFBSAiAEAmALi3ZnRYPp+HSQwwVAec96z0jDWCp2JoexBdBkaQ\\\\u003d\\\\u003d\\\"]},\\\"protocolVersion\\\":\\\"ECv2\\\",\\\"signedMessage\\\":\\\"{\\\\\\\"encryptedMessage\\\\\\\":\\\\\\\"00ThDSjhUWpdv0eWDt551dhtEMamhtkcZMV/W8q+Db1+jSuEi024ZQuTWaciBVjxICTw2JlJXMXZpzeNU4RkQgD+HNNvj6r3kBEB3lgq6x8Uz4FkZrj8RLo1buUrhkD5D5SZ/CnKVrvViFfeNxuOSr/+F1v6a5JWWIiFq7Ty5323bygSmDbyWBjXqPWdInXwaUT0CRVzmXnK8L1mOewXdjZhqZMVKypejumY1MiCafQ+t0tRmasyIa1UYBpiGEekumu+J9upbavPVH2//MyaxWC/y9abWRCXxDH/j/OU0ltOZiXnP4P8g+tnxnNS9GYSLL4+xw9p5Hx+BKFzDL9Um8l6SoMeQFvvLN8CSlXr/tlTbonY9pKAB37sRIykS+DYLhyLFGhlBt4d3FI61UWwj0CDyQ1W48hRMy0nC3wUospOGgRQorc1OeC9pgXCSVPayNsP9Q\\\\\\\\u003d\\\\\\\\u003d\\\\\\\",\\\\\\\"ephemeralPublicKey\\\\\\\":\\\\\\\"BIAI7cWkfkfkvthQwS5gp2WXT+motdZ9Gr7jwUyZtYyUaHv6k6PyhWUBl75kKDV8SwjSzaVKe4xlvwkJdnru9TE\\\\\\\\u003d\\\\\\\",\\\\\\\"tag\\\\\\\":\\\\\\\"cMVa3uiu8Q3GVP/Sx91BaPWOpIxdTI7s0+nVscdzkTU\\\\\\\\u003d\\\\\\\"}\\\"}\",\n    \"type\": 1,\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"cc-12345678\\\"}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/googlepay",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"googlepay"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "applepay",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Accept-Charset",
+										"value": "\"\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"resource\": \"applepay\",\n    \"paymentToken\": \"'{'data':'D2yPz8nGmK4yR7lM','signature':'MIAGCSqGSIb3DQEHAqCAMI','header':{'publicKeyHash':'2BM9KNTLi761+S8QGg70CZaLy4Mlxo+TsjLEibE9qbw=','ephemeralPublicKey':'MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOVM9gGg6i7E8JcVr77QWgnSp7IophEFwvQGnqbepTGaFs8PJzPh+dEcNrUc90NRawQMzqx3RtKgA1UNMpfrOYQ==','transactionId':'1ac4848a0071113939c9167b9fc485085ebec31f6514f64f2c2b36be0afd1327'},'version':'EC_v1'}'\",\n    \"type\": 1,\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"cc-12345678\\\"}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/applepay",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"applepay"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Using the intent to charge the customer via their credit/ debit card details.\n\nThis can be done via\n\n- /creditcards ECOM (will go through 3DS)\n    \n- /creditcards MOTO\n    \n- /googlepay for googlepay transactions\n    \n- /applepay for applepay transactions"
+				},
+				{
+					"name": "OpenBankings",
+					"item": [
+						{
+							"name": "openbankings",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"payment_intent\":\"{{payment_intent}}\",\r\n\"user_name\":\"{{$randomFullName}}\",\r\n\"user_email\":\"{{$randomEmail}}\",\r\n\"merchant_data\": \"{\\\"order_id\\\": \\\"ob-12345678\\\"}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/openbankings",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"openbankings"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DirectDebits",
+					"item": [
+						{
+							"name": "directdebits",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let url = pm.response.json().url;",
+											"if(url) {",
+											"let param = url.split('transaction_id=');",
+											"let ref = param[1].split('&');",
+											"pm.collectionVariables.sete(\"transaction_id\", ref[0]);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"given_name\": \"{{$randomFirstName}}\",\n    \"family_name\": \"{{$randomLastName}}\",\n    \"company_name\": null,\n    \"email\": \"{{$randomEmail}}\",\n    \"country_code\": \"GB\",\n    \"account_holder_name\": \"{{$randomFullName}}\",\n    \"branch_code\": \"200000\",\n    \"account_number\": \"55779911\",\n    \"iban\": null,\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"dd-12345678\\\"}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/directdebits",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"directdebits"
+									]
+								},
+								"description": "This endpoint processes direct debits payments and returns to the user-defined URL with a url encoded transaction response.\n\n## Request Body\n\n- `payment_intent` (string, required): The payment intent token.\n    \n- `given_name`(string, required): The first name of the customer making the payment.\n    \n- `family_name`(string, required): The surname of the customer making the payment.\n    \n- `company_name` (string, optional): User’s company name. It’s required only if user’s given name and family name are not present.\n    \n- `email` (string, required): The email address of the customer making the payment.\n    \n- `country_code`(string, optional): ISO country code. Default value GB.\n    \n- `customer_address` (string, optional): Customer’s address details.\n    \n- `customer_postcode` (string, optional): Customer’s postcode.\n    \n- `account_holder_name`(string, required): Customer’s bank account name.\n    \n- `branch_code` (integer, required): Customer’s bank short code.\n    \n- `account_number` (integer, required): Customer’s bank account number.\n    \n- `merchant_data` (Json, optional): Additional custom data related to the merchant or customer.\n    \n\n## Response Body\n\n- `status` (string): Indicates the status of the transaction, such as \"success\" or \"failure\".\n    \n- `transaction_id` (string): Unique identifier for the transaction.\n    \n- `transaction_status` (string): Status of the transaction, e.g., \"processed\", \"pending\", \"failed\".\n    \n- `transaction_response_code` (string): Response code for the transaction.\n    \n- `transaction_response_message` (string): Message associated with the transaction response."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Transactions",
+					"item": [
+						{
+							"name": "Get Transactions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/transactions/{{transaction_id}}",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"transactions",
+										"{{transaction_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Transactions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/transactions/{{transaction_id}}/cancels",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"transactions",
+										"{{transaction_id}}",
+										"cancels"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refund Transactions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"partial_refund\": true,\n    \"amount\": 1.00\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/transactions/{{transaction_id}}/refunds",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"transactions",
+										"{{transaction_id}}",
+										"refunds"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Capture Transactions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"transaction_unique\": \"testCapture\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/transactions/{{transaction_id}}/captures",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"transactions",
+										"{{transaction_id}}",
+										"captures"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rerun Transactions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount\":\"1.01\",\r\n    \"transaction_unique\": \"rerun\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/transactions/{{transaction_id}}/reruns",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"transactions",
+										"{{transaction_id}}",
+										"reruns"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Repeat Payment",
+					"item": [
+						{
+							"name": "Repeat payment (ECOM)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"payment_id\", pm.response.json().id);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/repeat-payments",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"repeat-payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Repeat payment (MOTO)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"payment_id\", pm.response.json().id);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/repeat-payments",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"repeat-payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Repeat payment (existing transaction)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"payment_id\", pm.response.json().id);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"transaction_id\": \"BL-2MUXDEW3E3\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/repeat-payments",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"repeat-payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get repeat payment with id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/repeat-payments/{{payment_id}}?payment_type=fixed_schedule",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"repeat-payments",
+										"{{payment_id}}"
+									],
+									"query": [
+										{
+											"key": "payment_type",
+											"value": "fixed_schedule"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all repeat payments",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/repeat-payments?payment_type=fixed_schedule",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"repeat-payments"
+									],
+									"query": [
+										{
+											"key": "payment_type",
+											"value": "fixed_schedule"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel repeat payment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"reccuring_id\": 466\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/repeat-payments/cancel/{{payment_id}}",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"repeat-payments",
+										"cancel",
+										"{{payment_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete repeat payment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"recurring_id\": 466\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/repeat-payments/{{payment_id}}",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"repeat-payments",
+										"{{payment_id}}"
+									]
+								},
+								"description": "This endpoint deletes a schedule and all its remaining payments that haven’t been processed yet.\n\n## Parameters\n\n- `schedule_id` (integer) : id of the schedule of the repeat payment.\n    \n\n## Request Body\n\n- `payment_type` (string, required): Repeat payment type. It must be either of the following values. It is passed to identify the type of the specific repeat schedule. This value cannot be updated.\n    \n\n1. _fixed_schedule_\n    \n2. _variable_schedule_\n    \n\n- `recurring_id` (integer, required): id of the transaction you wish to remove.\n    \n\n## Response Body\n\n- `success` (boolean)\n    \n- `message` (string)"
+							},
+							"response": []
+						},
+						{
+							"name": "Retry transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"recurring_id\": 1385\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/repeat-payments/retry/{{schedule_id}}",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"repeat-payments",
+										"retry",
+										"{{schedule_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new card",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"paymentToken\": \"{{paymentToken}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/repeat-payments/card/{{schedule_id}}",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"repeat-payments",
+										"card",
+										"{{schedule_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "API requests to create recurring/ scheduled payments."
+				},
+				{
+					"name": "Apple Pay Domain Registration",
+					"item": [
+						{
+							"name": "Domain Verification File",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/.well-known/apple-developer-merchantid-domain-association",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										".well-known",
+										"apple-developer-merchantid-domain-association"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "applepay/domains",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"domain_name\": \"https://demo-app.co.uk/\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/applepay/domains",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"applepay",
+										"domains"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "applepay/domains",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://secure.blinkpayment.co.uk/api/pay/v1/applepay/domains",
+									"protocol": "https",
+									"host": [
+										"secure",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"api",
+										"pay",
+										"v1",
+										"applepay",
+										"domains"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This API allows users to register their domain for Apple Pay through Blink, allowing users to accept apple pay wallet payments."
+				}
+			],
+			"description": "The Payments API allows users to take payments directly form their own website and platforms.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Paylink API Document 360",
+			"item": [
+				{
+					"name": "Create Paylink",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"paylink_id\", pm.response.json().id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"payment_method\": [\"credit-card\",\"open-banking\"],\n    \"transaction_type\": \"SALE\",\n    \"full_name\": \"Joe Blogs\",\n    \"email\": \"j.blogs@blinkpayment.co.uk\",\n    \"currency\": \"GBP\",\n    \"mobile_number\": \"0753215468\",\n    \"transaction_unique\": \"Postman Test\",\n    \"is_decide_amount\": true,\n    \"amount\": 2.01,\n    \"notes\": \"test note\",\n    \"reminder\": true,\n    \"reminder_interval_count\": 2,\n    \"reminder_interval_frequency\": \"days\",\n    \"notification_url\": \"https://blinkpayment.co.uk/webhook\",\n    \"redirect_url\": \"https://api-demo-php.blinkpayment.co.uk/return\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://secure.blinkpayment.co.uk/api/paylink/v1/paylinks",
+							"protocol": "https",
+							"host": [
+								"secure",
+								"blinkpayment",
+								"co",
+								"uk"
+							],
+							"path": [
+								"api",
+								"paylink",
+								"v1",
+								"paylinks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get paylink by paylink Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://secure.blinkpayment.co.uk/api/paylink/v1/paylinks/{{paylink_id}}",
+							"protocol": "https",
+							"host": [
+								"secure",
+								"blinkpayment",
+								"co",
+								"uk"
+							],
+							"path": [
+								"api",
+								"paylink",
+								"v1",
+								"paylinks",
+								"{{paylink_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Paylinks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://secure.blinkpayment.co.uk/api/paylink/v1/paylinks?status=unpaid&amount=1",
+							"protocol": "https",
+							"host": [
+								"secure",
+								"blinkpayment",
+								"co",
+								"uk"
+							],
+							"path": [
+								"api",
+								"paylink",
+								"v1",
+								"paylinks"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "unpaid"
+								},
+								{
+									"key": "amount",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Paylink Notification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"send_email\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://secure.blinkpayment.co.uk/api/paylink/v1/paylinks/{{paylink_id}}/notifications",
+							"protocol": "https",
+							"host": [
+								"secure",
+								"blinkpayment",
+								"co",
+								"uk"
+							],
+							"path": [
+								"api",
+								"paylink",
+								"v1",
+								"paylinks",
+								"{{paylink_id}}",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Paylink",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"testdemo@yopmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://secure.blinkpayment.co.uk/api/paylink/v1/paylinks/{{paylink_id}}",
+							"protocol": "https",
+							"host": [
+								"secure",
+								"blinkpayment",
+								"co",
+								"uk"
+							],
+							"path": [
+								"api",
+								"paylink",
+								"v1",
+								"paylinks",
+								"{{paylink_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The Paylink API allows users to generate secure payment links and send links via email and SMS. The payment links can be customised via the Blink portal."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_key",
+			"value": "eff458c623bba928a1a211521a7e38433bdf68780d0d8a16e2502f43cca322bc",
+			"type": "string"
+		},
+		{
+			"key": "secret_key",
+			"value": "6310e48bdd0e4381459a62b46d2c4fd6e8ab65a2a4d5205c6c3ddebfbbaebbf8",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NDM5OCwic2VjcmV0X2tleSI6IjYzMTBlNDhiZGQwZTQzODE0NTlhNjJiNDZkMmM0ZmQ2ZThhYjY1YTJhNGQ1MjA1YzZjM2RkZWJmYmJhZWJiZjgiLCJleHAiOjE3MjA3MDcyNjZ9.91qa4veQ9xGVM-Jc_3_i_vaykEdYarRwUzb-37aLD0c",
+			"type": "string"
+		},
+		{
+			"key": "payment_types",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "payment_intent",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "transaction_unique",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "merchant_id",
+			"value": "233508",
+			"type": "string"
+		},
+		{
+			"key": "intent_id",
+			"value": "5548",
+			"type": "string"
+		},
+		{
+			"key": "transaction_id",
+			"value": "BL-2MUXYN2QLP",
+			"type": "string"
+		},
+		{
+			"key": "paymentToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "paylink_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "payment_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "schedule_id",
+			"value": "270",
+			"type": "default"
+		}
+	]
+}
