@@ -11,6 +11,7 @@ const webhook = require("./routers/webhook")
 app.use("/supportteamtest", supportRouter);
 app.use("/storage", storageRouter);
 app.use("/webhook", webhook);
+app.get("/",(req, res, next)=>res.redirect("/supportteamtest"))
 app.all("*", (req, res, next) => {
     res.status(404).send({ msg: "Not found!" });
   });
